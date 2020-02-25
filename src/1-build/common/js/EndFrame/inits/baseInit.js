@@ -118,7 +118,7 @@ export default function baseInit(
   }
 
   if (typeof extraCtaLogoInit === "function") {
-    extraCtaLogoInit(T.cta, T.logo);
+    extraCtaLogoInit(T.cta, T.netflixLogo);
   }
 
   T.appendChild(T.netflixLogo);

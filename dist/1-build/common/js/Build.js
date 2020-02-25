@@ -4,6 +4,7 @@ import "@netflixadseng/wc-netflix-text";
 import "@netflixadseng/wc-netflix-img";
 import { Styles, Markup, Align, Effects } from "ad-view";
 import { ImageManager } from "ad-control";
+import verticalStacked from "./EndFrame/postmarkups/verticalStacked.js";
 import { titleTreatmentLayout } from "./EndFrame/postmarkups/shared.js";
 import { Animation } from "@common/js/Animation.js";
 import { Control } from "@common/js/Control.js";
@@ -107,27 +108,64 @@ export function EndFrame(arg) {
 
   T.subLayer.appendChild(T);
 
-  baseInit(T, {
-    logoWidth: 112,
-    ctaWidth: 107,
-    ctaMaxWidth: 117,
-    ctaHeight: 28
-  });
+  switch (arg.layout) {
+    case "SIDE_BY_SIDE":
+    default:
+      baseInit(T, {
+        logoWidth: 112,
+        ctaWidth: 107,
+        ctaMaxWidth: 117,
+        ctaHeight: 28
+      });
+      break;
+    case "CORNER_RIGHT":
+      baseInit(T, {
+        logoWidth: 98,
+        ctaWidth: 94,
+        ctaMaxWidth: 94,
+        ctaHeight: 25
+      });
+      break;
+  }
 
-  T.postMarkupStyling = function() {
-    verticalSideBySide({
-      ctaLogoOffset: 20,
-      tuneInFontSize: 16,
-      tuneInLockupOffset: 16,
-      brandingLockupAlign: {
-        x: Align.CENTER,
-        y: {
-          type: Align.BOTTOM,
-          offset: -19
-        }
-      }
-    });
-  };
+  switch (arg.layout) {
+    case "SIDE_BY_SIDE":
+    default:
+      T.postMarkupStyling = function() {
+        verticalSideBySide({
+          ctaLogoOffset: 20,
+          tuneInFontSize: 16,
+          tuneInLockupOffset: 16,
+          brandingLockupAlign: {
+            x: Align.CENTER,
+            y: {
+              type: Align.BOTTOM,
+              offset: -19
+            }
+          }
+        });
+      };
+      break;
+    case "CORNER_RIGHT":
+      T.postMarkupStyling = function() {
+        verticalStacked({
+          tuneInFontSize: 16,
+          brandingLockupOffset: 8,
+          brandingLockupElemXAlign: Align.CENTER,
+          brandingLockupAlign: {
+            x: {
+              type: Align.RIGHT,
+              offset: -23
+            },
+            y: {
+              type: Align.BOTTOM,
+              offset: -20
+            }
+          }
+        });
+      };
+      break;
+  }
 
   return T;
 }

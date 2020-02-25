@@ -1,5 +1,5 @@
 {
-  "name": "@NetflixDev/bt-ER-300x250",
+  "name": "@NetflixDev/bt-ER-300x600",
   "version": "2.2.1",
   "description": "C20/Monet-compatible templates that use  https://github.com/ff0000-ad-tech/ad-docs/blob/master/README.md",
   "scripts": {
@@ -37,12 +37,13 @@
       "creative": "./dist/3-traffic/default/300x600",
       "toolkit": "./toolkit/300x600_NF_Global_Template_ContainerRecycle_Layered.psd",
       "layouts": {
-        "SIDE_BY_SIDE": "Side By Side"
+        "SIDE_BY_SIDE": "Side By Side",
+        "CORNER_RIGHT": "Corner Right"
       }
     },
     "context": "RED Interactive",
     "state": "published",
-    "updated": 1582582557053,
+    "updated": 1582668846350,
     "username": "GitHub",
     "full_name": "NetflixDev/bt-ER-300x600",
     "html_url": "https://github.com/NetflixDev/bt-ER-300x600",
