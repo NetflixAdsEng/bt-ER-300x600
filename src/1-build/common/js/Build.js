@@ -59,7 +59,7 @@ export function Intro(arg) {
 	T.appendChild(T.introVideoPlayer)
 
 	// brand logo
-	if (AdData.useSupercutLogo) {
+	if (adData.useSupercutLogo) {
 		T.netflixLogo = document.createElement('netflix-brand-logo')
 		T.netflixLogo.setAttribute('width', 90)
 		T.appendChild(T.netflixLogo)
